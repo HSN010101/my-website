@@ -688,6 +688,7 @@
     }
     .home-content {
       max-width: 50%;
+      padding: top 180px;
     }
     .services-container {
       flex-direction: row;
