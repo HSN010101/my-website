@@ -1,6 +1,7 @@
 /* ==========================================================================
-   GLOBAL RESET & BASE STYLES
+   GLOBAL STYLES & VARIABLES
    ========================================================================== */
+
    * {
     margin: 0;
     padding: 0;
@@ -12,41 +13,45 @@
     font-family: 'Poppins', sans-serif;
   }
   
-  /* Root Color Variables */
-  :root {
-    --bg-color: black;
-    --second-bg-color: black;
-    --text-color: white;
-    --main-color: burlywood;
-    --header-bg-color: black;
-  }
-  
-  /* Light Theme Variables */
-  .light-theme {
-    --bg-color: white;
-    --second-bg-color: white;
-    --text-color: rgb(98, 62, 14);
-    --header-bg-color: rgb(165, 124, 42);
-  }
-  
-  /* Basic HTML & Body */
   html {
     font-size: 62.5%; /* 1rem = 10px */
     overflow-x: hidden;
   }
   
   body {
+    min-height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.5s ease, color 0.5s ease;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+  }
+  
+  /* Optional footer helper */
+  footer {
+    margin-top: auto;
+  }
+  
+  :root {
+    --bg-color: #000;
+    --second-bg-color: #000;
+    --text-color: #fff;
+    --main-color: burlywood;
+    --header-bg-color: #000;
+  }
+  
+  /* LIGHT THEME */
+  .light-theme {
+    --bg-color: #fff;
+    --second-bg-color: #fff;
+    --text-color: rgb(98, 62, 14);
+    --header-bg-color: rgb(165, 124, 42);
   }
   
   /* ==========================================================================
      HEADER & NAVIGATION
      ========================================================================== */
+  
   .header {
     position: fixed;
     top: 0;
@@ -59,65 +64,60 @@
     z-index: 100;
   }
   
+  /* Logo */
   .logo {
     font-size: 3rem;
     color: var(--text-color);
     font-weight: 800;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: transform 0.3s ease;
   }
-  
   .logo span {
     color: var(--main-color);
   }
-  
   .logo:hover {
-    transform: scale(1.2);
+    transform: scale(2.3);
   }
   
-  /* Theme Toggle Switch */
+  /* Toggle switch */
   .switch {
+    font-size: 17px;
     position: relative;
     display: inline-block;
     width: 3.5em;
     height: 2em;
     cursor: pointer;
-    font-size: 1.7rem;
   }
-  
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
-  
   .slider {
+    --background: #20262c;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #20262c;
+    background-color: var(--background);
     transition: 0.5s;
     border-radius: 30px;
   }
-  
   .slider:before {
-    position: absolute;
     content: "";
+    position: absolute;
     height: 1.4em;
     width: 1.4em;
     border-radius: 50%;
     left: 10%;
     bottom: 15%;
-    background: #20262c;
     box-shadow: inset 8px -4px 0px 0px #ececd9, -4px 1px 4px 0px #dadada;
+    background: var(--background);
     transition: 0.5s;
   }
-  
   .decoration {
     position: absolute;
-    content: "";
     height: 2px;
     width: 2px;
     border-radius: 50%;
@@ -129,7 +129,6 @@
     box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
       -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
   }
-  
   input:checked ~ .decoration {
     transform: translateX(-20px);
     width: 10px;
@@ -138,38 +137,30 @@
     box-shadow: -12px 0 0 white, -6px 0 0 1.6px white, 5px 15px 0 1px white,
       1px 17px 0 white, 10px 17px 0 white;
   }
-  
   input:checked + .slider {
     background-color: #5494de;
   }
-  
   input:checked + .slider:before {
     transform: translateX(100%);
     box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
   }
   
-  /* Navbar Links */
-  .navbar {
-    display: flex;
-    align-items: center;
-  }
-  
+  /* Navigation Links */
   .navbar a {
     font-size: 1.8rem;
-    color: white;
+    color: #fff;
     margin-left: 4rem;
     font-weight: 500;
     transition: 0.3s ease;
     border-bottom: 3px solid transparent;
   }
-  
   .navbar a:hover,
   .navbar a:active {
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
   }
   
-  /* Mobile Menu Icon */
+  /* Menu icon for mobile (hidden on big screens) */
   #menu-icon {
     font-size: 3.6rem;
     color: var(--main-color);
@@ -177,84 +168,47 @@
   }
   
   /* ==========================================================================
-     GENERAL SECTION LAYOUT
-     ========================================================================== */
-  section {
-    padding: 10rem 9% 10rem;
-    min-height: 100vh;
-    /* Add top margin to account for fixed header */
-    margin-top: 8rem;
-  }
-  
-  /* Stars Background */
-  .stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-  }
-  
-  .star {
-    position: absolute;
-    background: gold;
-    border-radius: 50%;
-    opacity: 1;
-    animation: twinkle 2s infinite alternate ease-in-out, moveStars 10s linear infinite;
-  }
-  
-  .light-theme .star {
-    background-color: black;
-  }
-  
-  @keyframes twinkle {
-    from {
-      opacity: 0.5;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1.2);
-    }
-  }
-  
-  @keyframes moveStars {
-    from {
-      transform: translateY(-5vh);
-    }
-    to {
-      transform: translateY(100vh);
-    }
-  }
-  
-  /* ==========================================================================
      HOME SECTION
      ========================================================================== */
+  
   .home {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10rem;
-    flex-direction: row;
     padding: 0 2rem;
   }
   
   .home-content {
     position: relative;
     top: 30px;
+    text-align: center;
   }
-  
   .home-content h1 {
     font-weight: 700;
+    line-height: 1.3;
+    font-size: 8rem;
     opacity: 0;
     position: relative;
     left: 70px;
-    text-align: center;
-    line-height: 1.3;
-    font-size: 8rem;
     animation: slideInFromLeft 1.2s ease-in-out forwards;
     animation-delay: 0.2s;
+  }
+  .home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
+    font-size: 5rem;
+  }
+  .home-content p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2.6;
+    margin: 70px;
+    top: 70px;
+    opacity: 0;
+    position: relative;
+    left: 85px;
+    animation: slideInFromRight 1.2s ease-in-out forwards;
+    animation-delay: 0.5s;
   }
   
   @keyframes slideInFromLeft {
@@ -267,33 +221,6 @@
       opacity: 1;
     }
   }
-  
-  .home-content h3 {
-    margin-bottom: 2rem;
-    font-size: 5rem;
-    text-align: center;
-    position: relative;
-    left: 70px;
-    opacity: 0;
-    animation: slideInFromLeft 1.2s ease-in-out forwards;
-    animation-delay: 0.3s;
-  }
-  
-  .home-content p {
-    opacity: 0;
-    text-align: center;
-    position: relative;
-    left: 85px;
-    font-size: 1.8rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    line-height: 2.6;
-    margin: 70px;
-    top: 70px;
-    animation: slideInFromRight 1.2s ease-in-out forwards;
-    animation-delay: 0.5s;
-  }
-  
   @keyframes slideInFromRight {
     from {
       transform: translateX(100%);
@@ -305,32 +232,23 @@
     }
   }
   
-  /* Animated Word */
+  /* Animated words in home */
   .text-animation {
-    font-size: 34px;
+    font-size: 3.4rem;
     position: relative;
     top: 60px;
-    margin-left: 120px;
-    text-align: center;
-    min-width: 280px;
+    margin-left: 12rem;
+    min-width: 28rem;
     color: var(--main-color);
   }
-  
   .text-animation span {
     position: relative;
-    font-size: 30px;
+    font-size: 3rem;
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid var(--main-color);
     animation: typing 0.6s steps(20, end) 1, cursor 0.6s steps(1) infinite;
   }
-  
-  @keyframes cursor {
-    50% {
-      border-right-color: transparent;
-    }
-  }
-  
   @keyframes typing {
     from {
       width: 0;
@@ -339,16 +257,13 @@
       width: 100%;
     }
   }
-  
-  /* Social Icons */
-  .socials-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+  @keyframes cursor {
+    50% {
+      border-right-color: transparent;
+    }
   }
   
+  /* Social icons */
   .socials-icons a {
     display: inline-flex;
     justify-content: center;
@@ -360,43 +275,76 @@
     font-size: 2rem;
     border-radius: 50%;
     color: var(--main-color);
-    margin: 1.5rem;
+    margin: 3rem 1.5rem 3rem 0;
     transition: 0.3s ease;
   }
-  
   .socials-icons a:hover {
-    color: black;
+    color: #000;
     transform: scale(1.2) translateY(-5px);
     background-color: goldenrod;
     box-shadow: 0 0 25px var(--main-color);
+  }
+  .socials-icons i {
+    pointer-events: none;
+  }
+  
+  /* ==========================================================================
+     STARS BACKGROUND
+     ========================================================================== */
+  
+  .stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+  .star {
+    position: absolute;
+    background: gold;
+    border-radius: 50%;
+    opacity: 1;
+    animation: twinkle 2s infinite alternate ease-in-out, moveStars 10s linear infinite;
+  }
+  .light-theme .star {
+    background-color: #000;
+  }
+  @keyframes twinkle {
+    from {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  @keyframes moveStars {
+    from {
+      transform: translateY(-5vh);
+    }
+    to {
+      transform: translateY(100vh);
+    }
   }
   
   /* ==========================================================================
      SERVICES SECTION
      ========================================================================== */
+  
   .heading {
     text-align: center;
     font-size: 8rem;
-  }
-  
-  .services h2 {
     margin-bottom: 8rem;
-    text-align: center;
-  }
-  
-  .services h3 {
-    margin-bottom: 3rem;
-    text-align: center;
   }
   
   .services-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
   }
-  
   .services-container .services-box {
     flex: 1 1 300px;
     display: flex;
@@ -406,357 +354,288 @@
     text-align: center;
     background: var(--main-color);
     padding: 3rem 2rem 4rem;
-    min-height: 550px;
+    height: 55rem;
     border-radius: 20%;
     border: 3px solid transparent;
     cursor: pointer;
     transition: 0.4s ease;
   }
-  
   .services-container .services-box:hover {
     transform: scale(1.1);
-    background-color: white;
-    color: black;
+    background-color: #fff;
+    color: #000;
     border-radius: 10%;
     border: 3px solid gold;
     box-shadow: 0 0 95px rgb(255, 4, 142);
   }
-  
   .services-box i {
     font-size: 7rem;
-    color: black;
+    color: #000;
     margin-bottom: 1rem;
   }
-  
   .services-box h3 {
     font-size: 2.6rem;
+    margin-bottom: 3rem;
   }
-  
   .services-box p {
     font-size: 1.6rem;
-    margin: 1rem 0 3rem;
-    color: #333;
     line-height: 1.6;
+    color: #333;
+    margin-bottom: 3rem;
+  }
+  .services-box .btn {
+    background-color: #fff;
+    transition: background-color 0.3s;
+  }
+  .services-box .btn:hover {
+    color: var(--main-color);
   }
   
   /* ==========================================================================
      PROJECTS SECTION
      ========================================================================== */
-  .projects {
-    padding-right: 10px;
-    margin-right: 90px;
-  }
   
+  .projects {
+    padding: 10rem 9% 10rem;
+    margin-right: 9rem;
+  }
   .projects h2 {
     text-align: center;
     font-size: 4rem;
     margin-bottom: 4rem;
   }
-  
   .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
   }
-  
   .project-card {
-    background-color: white;
-    color: black;
-    border: 3px solid rgb(151, 132, 26);
+    background-color: #fff;
+    color: #000;
+    border: 0.3rem solid rgb(151, 132, 26);
     box-shadow: 0 0 15px rgb(231, 183, 9);
-    border-radius: 10px;
+    border-radius: 10%;
     overflow: hidden;
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  
   .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border: 3px solid burlywood;
+    transform: translateY(-1rem) scale(1.1);
+    border: 0.3rem solid burlywood;
     box-shadow: 0 0 15px burlywood;
   }
-  
   .project-card img {
     width: 100%;
     height: auto;
   }
-  
   .project-card h3 {
-    text-align: center;
-    padding: 10px;
     font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
   }
-  
   .project-card p {
-    padding: 0 15px 20px;
+    padding: 0 1.5rem 2rem;
     font-size: 1.6rem;
     color: #555;
   }
-  
   .project-card .btn {
     display: block;
-    margin: 20px auto 15px;
+    margin: 2rem auto 1.5rem;
     text-align: center;
-    padding: 10px;
+    padding: 1rem;
     background-color: burlywood;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    color: #fff;
+    border-radius: 0.5rem;
     transition: background-color 0.3s;
   }
-  
   .project-card .btn:hover {
     background-color: rgb(221, 181, 36);
-  }
-  
-  /* Project Image Backgrounds */
-  #tamarImage,
-  #shoplistImage {
-    background-color: #009688;
-  }
-  
-  #shop h3,
-  #resturange,
-  #education2 {
-    text-align: center;
   }
   
   /* ==========================================================================
      SKILLS SECTION
      ========================================================================== */
+  
   #skills {
-    padding: 5rem 2rem;
+    padding: 5rem;
     text-align: center;
     width: 100%;
-    /* Remove fixed height for responsiveness */
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* Instead of fixed height, let content define it */
   }
-  
   #skills h2 {
     font-size: 3.2rem;
     margin-bottom: 2rem;
   }
-  
   .skills-container {
     display: flex;
-    gap: 2rem;
-    padding: 2rem;
-    width: 100%;
-    max-width: 1200px;
+    gap: 3rem;
+    padding: 5rem;
+    max-width: 120rem;
     margin: 0 auto;
     overflow-x: auto;
     cursor: grab;
   }
-  
+  .skill {
+    text-align: center;
+  }
   .skill-icon {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    font-size: 6rem;
+    width: 6rem;
+    height: 6rem;
     transition: transform 0.3s ease;
   }
-  
   .skill:hover .skill-icon {
     transform: scale(1.2);
   }
-  
   .skill p {
-    margin: 1rem 0;
+    margin-top: 4rem;
     font-size: 1.8rem;
-    color: white;
-    text-align: center;
+    color: #fff;
   }
-  
   .light-theme .skill p {
-    color: black;
-  }
-  
-  /* Scrollbar for Skills */
-  .skills-container::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .skills-container::-webkit-scrollbar-thumb {
-    background-color: white;
-    border-radius: 10px;
-  }
-  
-  .skills-container::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .light-theme .skills-container::-webkit-scrollbar-thumb {
-    background-color: rgb(121, 104, 104);
-  }
-  
-  .light-theme .skills-container::-webkit-scrollbar-track {
-    background-color: rgba(150, 47, 47, 0.2);
+    color: #000;
   }
   
   /* ==========================================================================
-     TIMELINE / EDUCATION SECTION
+     EDUCATION / TIMELINE SECTION
      ========================================================================== */
-  .timeline-section {
-    padding: 10rem 2rem;
-  }
   
+  .timeline-section {
+    padding: 10rem 1.5rem;
+    min-height: 100vh;
+  }
   .timeline-section h2 {
     margin-bottom: 5rem;
-    font-size: 4rem;
     text-align: center;
+    font-size: 4rem;
   }
-  
   .timeline-items {
-    max-width: 1000px;
+    max-width: 100rem;
     margin: 0 auto;
     position: relative;
     padding: 2rem;
   }
-  
   .timeline-items::before {
     content: "";
     position: absolute;
-    width: 5px;
+    width: 0.5rem;
     height: 100%;
     background-color: var(--main-color);
-    left: calc(50% - 2.5px);
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
   .timeline-item {
+    width: 100%;
     margin-bottom: 4rem;
     position: relative;
-    width: 100%;
   }
-  
-  .timeline-item:last-child {
-    margin-bottom: 0;
-  }
-  
   .timeline-item:nth-child(odd) {
-    padding-right: 50%;
+    padding-right: calc(50% + 3rem);
     text-align: right;
   }
-  
   .timeline-item:nth-child(even) {
-    padding-left: 50%;
-    text-align: left;
+    padding-left: calc(50% + 3rem);
   }
-  
   .timeline-dot {
-    height: 21px;
-    width: 21px;
-    background-color: var(--main-color);
     position: absolute;
-    left: calc(50% - 10px);
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.1rem;
+    height: 2.1rem;
+    background-color: var(--main-color);
     border-radius: 50%;
-    top: 10px;
   }
-  
   .timeline-date {
-    color: white;
-    font-weight: 800;
     font-size: 2rem;
+    color: #fff;
+    font-weight: 800;
     margin: 0.6rem 0 1.5rem;
   }
-  
   .timeline-content {
     background-color: var(--main-color);
     padding: 3rem;
-    border-radius: 10px;
+    border-radius: 1rem;
     transition: 0.3s ease-in-out;
+    cursor: pointer;
   }
-  
   .timeline-content:hover {
-    transform: scale(1.05);
-    border: 3px solid gold;
-    box-shadow: 0 0 95px rgb(201, 9, 115);
+    transform: scale(1.1);
+    border: 0.3rem solid gold;
+    box-shadow: 0 0 9.5rem rgb(201, 9, 115);
   }
-  
   .timeline-content h3 {
     font-size: 2rem;
-    color: white;
+    color: #fff;
     margin-bottom: 1rem;
+    text-transform: capitalize;
   }
-  
   .timeline-content p {
-    color: white;
-    opacity: 0.8;
     font-size: 1.6rem;
+    color: #fff;
+    opacity: 0.8;
     line-height: 2.2rem;
   }
   
   /* ==========================================================================
-     CONTACT SECTION
+     CONTACT SECTION & FORM
      ========================================================================== */
-  #contact {
-    padding: 10rem 2rem;
-  }
   
+  #contact {
+    padding: 10rem 9% 10rem;
+  }
   #contact h2 {
-    font-size: 4rem;
+    font-size: 5.6rem;
     text-align: center;
     margin-bottom: 4rem;
+    padding: 1.5rem;
   }
-  
-  #contact form {
+  form {
     background-color: burlywood;
-    padding: 4rem;
-    border-radius: 42px;
     width: 60%;
     margin: 0 auto;
-    transition: box-shadow 0.3s ease;
+    padding: 4rem;
+    border-radius: 4.2rem;
+    transition: box-shadow 0.3s;
   }
-  
-  #contact form:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+  form:hover {
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.6);
   }
-  
   .inputs-form input,
   .inputs-form textarea {
     width: 100%;
     padding: 1.4rem;
-    background-color: black;
     margin-bottom: 2rem;
-    border-radius: 28px;
+    border-radius: 2.8rem;
     font-size: 1.6rem;
-    color: inherit;
+    background-color: #000;
+    box-shadow: 0 0 1rem 2rem;
+    color: bisque;
+    border: 0.1rem solid burlywood;
   }
-  
   .inputs-form input:focus,
   .inputs-form textarea:focus {
-    background-color: white;
+    background-color: #fff;
   }
-  
-  #contact input,
-  #contact textarea {
-    background-color: black;
-    color: bisque;
-    border: 1px solid burlywood;
-    font-size: 1.6rem;
-  }
-  
   #contact input::placeholder,
   #contact textarea::placeholder {
     color: burlywood;
   }
-  
-  #contact .btn {
+  button.btn {
+    width: 100%;
+    padding: 1.6rem;
+    font-size: 1.7rem;
     background-color: burlywood;
-    color: black;
-    padding: 1rem 2rem;
-    font-size: 1.8rem;
+    color: #000;
+    border: none;
+    border-radius: 20rem;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 200px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 1rem 0.7rem;
   }
-  
-  #contact .btn:hover {
+  button.btn:hover {
     background-color: burlywood;
   }
   
@@ -764,180 +643,131 @@
      RESPONSIVE MEDIA QUERIES
      ========================================================================== */
   
-  /* Tablet & Small Devices */
-  @media (max-width: 768px) {
-    html {
-      font-size: 55%;
-    }
-    
+  /* Medium screens (tablets, up to 1024px) */
+  @media (max-width: 1024px) {
     .header {
-      padding: 2rem 4%;
+      padding: 2rem 5%;
     }
-    
-    /* Show mobile menu icon and adjust navbar */
-    #menu-icon {
-      display: block;
-    }
-    
-    .navbar {
-      flex-direction: column;
-      background: var(--header-bg-color);
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 1rem 0;
-      display: none;
-    }
-    
-    .navbar.active {
-      display: flex;
-    }
-    
     .navbar a {
-      margin: 1rem 0;
+      margin-left: 2rem;
       font-size: 1.6rem;
-      margin-left: 0;
     }
-    
-    /* Home Section Adjustments */
-    .home {
-      flex-direction: column;
-      gap: 2rem;
-      padding: 2rem 1rem;
-    }
-    
-    .home-content {
-      text-align: center;
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-    
     .home-content h1 {
-      font-size: 5rem;
-      left: 0;
+      font-size: 6.5rem;
+      left: 50px;
     }
-    
-    .home-content h3 {
-      font-size: 3rem;
-      left: 0;
-    }
-    
     .home-content p {
       font-size: 1.6rem;
-      left: 0;
-      margin: 1rem;
-      top: 1rem;
+      left: 50px;
+      margin: 4rem;
     }
-    
-    /* Services: remove fixed min-height */
     .services-container .services-box {
-      min-height: auto;
+      height: auto;
       padding: 2rem;
     }
-    
-    /* Projects: single column grid */
     .project-container {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      padding: 0 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
-    
-    /* Skills: reduce padding & gap */
-    #skills {
-      padding: 3rem 1rem;
-    }
-    
-    .skills-container {
-      gap: 1rem;
-      padding: 1rem;
-    }
-    
-    /* Timeline: adjust padding and center items */
-    .timeline-section {
-      padding: 5rem 1rem;
-    }
-    
-    .timeline-items::before {
-      left: 10px;
-    }
-    
-    .timeline-item {
-      padding: 0;
-      text-align: center;
-    }
-    
-    /* Contact: widen form and remove offset */
-    #contact form {
-      width: 90%;
-      padding: 2rem;
+    form {
+      width: 80%;
       right: 0;
-      margin: 0 auto;
-    }
-    
-    .inputs-form input,
-    .inputs-form textarea {
-      padding: 1rem;
-    }
-    
-    #contact h2 {
-      font-size: 3.5rem;
     }
   }
   
-  /* Mobile Devices */
+  /* Small screens (mobile & portrait tablets, up to 768px) */
+  @media (max-width: 768px) {
+    #menu-icon {
+      display: block;
+    }
+    .navbar {
+      display: none;
+    }
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1.5rem 5%;
+    }
+    .home {
+      flex-direction: column;
+      gap: 3rem;
+      padding: 0 2rem;
+    }
+    .home-content h1 {
+      font-size: 5.5rem;
+      left: 0;
+      text-align: center;
+    }
+    .home-content p {
+      font-size: 1.4rem;
+      left: 0;
+      margin: 2rem;
+      text-align: center;
+    }
+    .text-animation {
+      margin-left: 0;
+      top: 2rem;
+    }
+    .services-container {
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .skills-container {
+      flex-wrap: nowrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    #contact h2 {
+      font-size: 4rem;
+      padding: 1rem;
+    }
+    form {
+      width: 90%;
+      padding: 2rem;
+    }
+  }
+  
+  /* Extra small screens (up to 480px) */
   @media (max-width: 480px) {
     html {
-      font-size: 50%;
+      font-size: 55%; /* Slightly smaller base font */
     }
-    
     .header {
-      padding: 1.5rem 2%;
+      padding: 1rem 3%;
     }
-    
     .logo {
       font-size: 2.5rem;
     }
-    
     .home-content h1 {
+      font-size: 4.5rem;
+    }
+    .home-content h3:nth-of-type(2) {
       font-size: 3.5rem;
     }
-    
-    .home-content h3 {
-      font-size: 2.2rem;
-    }
-    
     .home-content p {
+      font-size: 1.2rem;
+      margin: 1.5rem;
+    }
+    .navbar a {
       font-size: 1.4rem;
-      margin: 0.5rem;
+      margin-left: 1rem;
     }
-    
-    .services h2 {
-      font-size: 3rem;
+    .services-container .services-box {
+      padding: 1.5rem;
+      height: auto;
     }
-    
-    .project-container {
-      gap: 0.5rem;
+    .project-card h3,
+    .project-card p {
+      font-size: 1.4rem;
     }
-    
+    .skills-container {
+      padding: 1rem;
+    }
     #contact h2 {
-      font-size: 3rem;
+      font-size: 3.6rem;
     }
-    
-    #contact form {
+    form {
       width: 95%;
-      padding: 1rem;
-    }
-    
-    .inputs-form input,
-    .inputs-form textarea {
-      font-size: 1.4rem;
-    }
-    
-    #contact .btn {
-      font-size: 1.6rem;
-      padding: 1rem;
+      padding: 1.5rem;
     }
   }
   
