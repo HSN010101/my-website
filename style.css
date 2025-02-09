@@ -54,7 +54,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 3rem 5%;
+    padding: 2rem 5%;
     background: var(--header-bg-color);
     display: flex;
     justify-content: space-between;
@@ -75,7 +75,7 @@
   .navbar {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .navbar a {
@@ -90,7 +90,6 @@
     border-bottom: 2px solid var(--main-color);
   }
   
-  /* Hamburger Menu (for mobile) */
   #menu-icon {
     font-size: 3rem;
     color: var(--main-color);
@@ -219,11 +218,20 @@
   }
   
   /* ==========================================================================
-     SECTION BASE STYLES (Optimized spacing)
+     SECTION BASE STYLES – MINIMAL VERTICAL SPACING
      ========================================================================== */
   section {
-    /* Reduced vertical padding and removed forced min-height */
-    padding: 6rem 5%;
+    padding: 0.3rem 5%;
+    margin: 0;
+  }
+  /* Add a tiny gap between consecutive sections */
+  section + section {
+    margin-top: 0.3rem;
+  }
+  
+  /* Reduce default heading & paragraph margins */
+  h1, h2, h3, p {
+    margin: 0.3rem 0;
   }
   
   /* ==========================================================================
@@ -234,8 +242,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem;
-    padding-top: 6rem; /* Reduced top padding for fixed header */
+    gap: 0.5rem;
   }
   
   .home-content h1 {
@@ -303,9 +310,9 @@
   }
   
   .socials-icons {
-    margin-top: 2rem;
+    margin-top: 0.3rem;
     display: flex;
-    gap: 1.5rem;
+    gap: 0.3rem;
     justify-content: center;
   }
   
@@ -325,8 +332,8 @@
   .socials-icons a:hover {
     background-color: goldenrod;
     color: black;
-    transform: scale(1.2) translateY(-5px);
-    box-shadow: 0 0 25px var(--main-color);
+    transform: scale(1.2) translateY(-2px);
+    box-shadow: 0 0 15px var(--main-color);
   }
   
   /* ==========================================================================
@@ -335,13 +342,13 @@
   .services .heading {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 0.3rem;
   }
   
   .services-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.5rem;
   }
   
   .services-box {
@@ -352,44 +359,44 @@
     justify-content: center;
     text-align: center;
     background: var(--main-color);
-    padding: 3rem 2rem 4rem;
-    height: 550px;
-    border-radius: 20%;
-    border: 3px solid transparent;
+    padding: 1rem;
+    height: 300px;
+    border-radius: 10%;
+    border: 2px solid transparent;
     cursor: pointer;
-    transition: 0.4s ease;
+    transition: 0.3s ease;
   }
   
   .services-box:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: white;
     color: black;
-    border-radius: 10%;
-    border: 3px solid gold;
-    box-shadow: 0 0 95px rgb(255, 4, 142);
+    border-radius: 5%;
+    border: 2px solid gold;
+    box-shadow: 0 0 25px rgb(255, 4, 142);
   }
   
   .light-theme .services-box:hover {
     background-color: white;
-    border: 3px solid gold;
-    border-radius: 10%;
-    transform: scale(1.1);
-    box-shadow: 0 0 95px rgb(255, 4, 142);
+    border: 2px solid gold;
+    border-radius: 5%;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgb(255, 4, 142);
   }
   
   .services-box i {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
   }
   
   .services-box h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem;
   }
   
   .services-box p {
-    font-size: 1.4rem;
-    line-height: 1.5;
+    font-size: 1.2rem;
+    line-height: 1.3;
   }
   
   /* ==========================================================================
@@ -398,20 +405,20 @@
   .projects h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 0.3rem;
   }
   
   .project-container {
     display: grid;
-    gap: 2rem;
+    gap: 0.5rem;
     grid-template-columns: 1fr;
   }
   
   .project-card {
     background-color: white;
     color: black;
-    border: 3px solid rgb(151, 132, 26);
-    border-radius: 10%;
+    border: 2px solid rgb(151, 132, 26);
+    border-radius: 5%;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -420,9 +427,9 @@
   }
   
   .project-card:hover {
-    transform: translateY(-10px) scale(1.1);
-    border: 3px solid burlywood;
-    box-shadow: 0 0 15px burlywood;
+    transform: translateY(-5px) scale(1.02);
+    border: 2px solid burlywood;
+    box-shadow: 0 0 10px burlywood;
   }
   
   .project-card img {
@@ -432,18 +439,18 @@
   }
   
   .project-card h3 {
-    font-size: 1.8rem;
-    margin: 1rem;
+    font-size: 1.6rem;
+    margin: 0.5rem;
   }
   
   .project-card p {
-    font-size: 1.4rem;
-    margin: 0 1rem 1rem;
+    font-size: 1.2rem;
+    margin: 0.5rem;
   }
   
   .project-card .btn {
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
     background: burlywood;
     color: black;
     text-align: center;
@@ -460,28 +467,27 @@
      ========================================================================== */
   #skills {
     text-align: center;
-    padding: 6rem 5%; /* Slightly adjusted if needed */
   }
   
   #skills h2 {
     font-size: 3rem;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 0.2rem;
   }
   
   .skills-container {
     display: flex;
     overflow-x: auto;
-    gap: 2rem;
-    padding: 1rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
   
   .skills-container::-webkit-scrollbar {
-    height: 0.8rem;
+    height: 0.5rem;
   }
   
   .skills-container::-webkit-scrollbar-thumb {
     background-color: var(--main-color);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
   
   .skill {
@@ -490,95 +496,97 @@
   }
   
   .skill-icon {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     transition: transform 0.3s ease;
   }
   
   .skill:hover .skill-icon {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   
   .skill p {
-    margin-top: 0.5rem;
-    font-size: 1.4rem;
+    margin-top: 0.2rem;
+    font-size: 1rem;
   }
   
   /* ==========================================================================
      EDUCATION / TIMELINE SECTION
      ========================================================================== */
+  #education { }
+  
   .timeline-section {
-    padding: 6rem 5%; /* Reduced padding */
+    margin: 0.2rem 0;
   }
   
   .timeline-section .heading {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 0.2rem;
   }
   
   .timeline-items {
     position: relative;
     margin: auto;
     max-width: 800px;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
   
   .timeline-items::before {
     content: "";
     position: absolute;
-    width: 5px;
+    width: 3px;
     height: 100%;
     background: var(--main-color);
-    left: calc(50% - 1px);
+    left: calc(50% - 1.5px);
   }
   
   .timeline-item {
     position: relative;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 0.5rem;
   }
   
   .timeline-dot {
-    width: 21px;
-    height: 21px;
+    width: 15px;
+    height: 15px;
     background: var(--main-color);
     border-radius: 50%;
     position: absolute;
-    left: calc(50% - 8px);
-    top: 10px;
+    left: calc(50% - 7.5px);
+    top: 5px;
   }
   
   .timeline-date {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin: 0.6rem 0 1.5rem;
+    margin: 0.3rem 0 0.5rem;
     color: white;
   }
   
   .timeline-content {
     background: var(--main-color);
     color: black;
-    padding: 3rem;
-    border-radius: 1em;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .timeline-content:hover {
-    transform: scale(1.1);
-    border-radius: 15%;
-    border: 3px solid gold;
-    box-shadow: 0 0 95px rgb(201, 9, 115);
+    transform: scale(1.03);
+    border-radius: 0.3rem;
+    border: 2px solid gold;
+    box-shadow: 0 0 15px rgb(201, 9, 115);
   }
   
   .timeline-content h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
     color: white;
   }
   
   .timeline-content p {
-    font-size: 1.6rem;
-    line-height: 1.5;
+    font-size: 1.2rem;
+    line-height: 1.3;
     color: white;
   }
   
@@ -586,40 +594,39 @@
      CONTACT SECTION
      ========================================================================== */
   #contact {
-    padding: 6rem 5%; /* Reduced padding */
     text-align: center;
   }
   
   #contact h2 {
     font-size: 3rem;
-    margin-bottom: 2rem; /* Reduced margin */
+    margin-bottom: 0.3rem;
   }
   
   #contact form {
     background-color: burlywood;
-    padding: 2rem;
-    border-radius: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     max-width: 600px;
     margin: auto;
     transition: box-shadow 0.3s ease;
   }
   
   #contact form:hover {
-    box-shadow: 0 0 20px burlywood;
+    box-shadow: 0 0 10px burlywood;
   }
   
   .inputs-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.5rem;
   }
   
   .inputs-form input,
   .inputs-form textarea {
     width: 100%;
-    padding: 1rem;
-    font-size: 1.4rem;
-    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
     border: 1px solid burlywood;
     background: black;
     color: bisque;
@@ -632,11 +639,11 @@
   }
   
   button.btn {
-    padding: 1rem 2rem;
-    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
     background: burlywood;
     border: none;
-    border-radius: 2rem;
+    border-radius: 1rem;
     cursor: pointer;
     transition: background 0.3s ease;
   }
@@ -662,7 +669,7 @@
       align-items: flex-start;
       width: 70%;
       height: 100vh;
-      padding: 4rem 2rem;
+      padding: 1rem;
       transform: translateX(100%);
       transition: transform 0.3s ease-in-out;
     }
@@ -670,7 +677,7 @@
       transform: translateX(0);
     }
     .navbar a {
-      margin-bottom: 2rem;
+      margin-bottom: 0.5rem;
       font-size: 1.8rem;
     }
     .go-back-btn {
@@ -685,7 +692,6 @@
       flex-direction: row;
       justify-content: space-around;
       text-align: left;
-      padding-top: 6rem;
     }
     .home-content {
       max-width: 50%;
@@ -698,7 +704,7 @@
       grid-template-columns: repeat(2, 1fr);
     }
     .skills-container {
-      gap: 3rem;
+      gap: 0.5rem;
     }
   }
   
@@ -708,7 +714,7 @@
       font-size: 70%;
     }
     .header {
-      padding: 3rem 8%;
+      padding: 2rem 8%;
     }
     .navbar a {
       font-size: 1.8rem;
@@ -719,16 +725,14 @@
     .project-container {
       grid-template-columns: repeat(3, 1fr);
     }
-    /* Enhance purple shadows for big screens */
     .services-box:hover {
-      box-shadow: 0 0 120px rgb(255, 4, 142);
+      box-shadow: 0 0 60px rgb(255, 4, 142);
     }
     .timeline-content:hover {
-      box-shadow: 0 0 120px rgb(201, 9, 115);
+      box-shadow: 0 0 60px rgb(201, 9, 115);
     }
-    /* Slightly reduce overall section vertical gaps on very large screens */
     section {
-      padding: 7rem 8%;
+      padding: 0.3rem 8%;
     }
   }
   
