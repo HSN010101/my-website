@@ -12,7 +12,7 @@
     font-family: 'Poppins', sans-serif;
   }
   
-  /* Root Variables */
+  /* Root Color Variables */
   :root {
     --bg-color: black;
     --second-bg-color: black;
@@ -29,24 +29,19 @@
     --header-bg-color: rgb(165, 124, 42);
   }
   
-  /* Basic Elements */
+  /* Basic HTML & Body */
   html {
-    font-size: 63%;
-    max-height: 710rem;
+    font-size: 62.5%; /* 1rem = 10px */
     overflow-x: hidden;
   }
   
   body {
-    max-height: 910rem;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.5s ease, color 0.5s ease;
     display: flex;
     flex-direction: column;
-  }
-  
-  footer {
-    margin-top: auto;
+    min-height: 100vh;
   }
   
   /* ==========================================================================
@@ -77,17 +72,17 @@
   }
   
   .logo:hover {
-    transform: scale(2.3);
+    transform: scale(1.2);
   }
   
-  /* Switch for theme toggle */
+  /* Theme Toggle Switch */
   .switch {
-    font-size: 17px;
     position: relative;
     display: inline-block;
     width: 3.5em;
     height: 2em;
     cursor: pointer;
+    font-size: 1.7rem;
   }
   
   .switch input {
@@ -97,14 +92,12 @@
   }
   
   .slider {
-    --background: #20262c;
     position: absolute;
-    cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--background);
+    background-color: #20262c;
     transition: 0.5s;
     border-radius: 30px;
   }
@@ -117,8 +110,8 @@
     border-radius: 50%;
     left: 10%;
     bottom: 15%;
+    background: #20262c;
     box-shadow: inset 8px -4px 0px 0px #ececd9, -4px 1px 4px 0px #dadada;
-    background: var(--background);
     transition: 0.5s;
   }
   
@@ -156,6 +149,11 @@
   }
   
   /* Navbar Links */
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  
   .navbar a {
     font-size: 1.8rem;
     color: white;
@@ -171,7 +169,7 @@
     border-bottom: 3px solid var(--main-color);
   }
   
-  /* Menu Icon (visible on mobile) */
+  /* Mobile Menu Icon */
   #menu-icon {
     font-size: 3.6rem;
     color: var(--main-color);
@@ -179,11 +177,13 @@
   }
   
   /* ==========================================================================
-     SECTIONS & LAYOUTS
+     GENERAL SECTION LAYOUT
      ========================================================================== */
   section {
-    min-height: 100vh;
     padding: 10rem 9% 10rem;
+    min-height: 100vh;
+    /* Add top margin to account for fixed header */
+    margin-top: 8rem;
   }
   
   /* Stars Background */
@@ -268,9 +268,15 @@
     }
   }
   
-  .home-content h3:nth-of-type(2) {
+  .home-content h3 {
     margin-bottom: 2rem;
     font-size: 5rem;
+    text-align: center;
+    position: relative;
+    left: 70px;
+    opacity: 0;
+    animation: slideInFromLeft 1.2s ease-in-out forwards;
+    animation-delay: 0.3s;
   }
   
   .home-content p {
@@ -299,7 +305,7 @@
     }
   }
   
-  /* Animated Word (Under Home Title) */
+  /* Animated Word */
   .text-animation {
     font-size: 34px;
     position: relative;
@@ -335,6 +341,14 @@
   }
   
   /* Social Icons */
+  .socials-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
   .socials-icons a {
     display: inline-flex;
     justify-content: center;
@@ -346,9 +360,8 @@
     font-size: 2rem;
     border-radius: 50%;
     color: var(--main-color);
-    margin: 3rem 1.5rem 3rem 0;
+    margin: 1.5rem;
     transition: 0.3s ease;
-    text-decoration: none;
   }
   
   .socials-icons a:hover {
@@ -356,10 +369,6 @@
     transform: scale(1.2) translateY(-5px);
     background-color: goldenrod;
     box-shadow: 0 0 25px var(--main-color);
-  }
-  
-  .socials-icons i {
-    pointer-events: none;
   }
   
   /* ==========================================================================
@@ -372,10 +381,12 @@
   
   .services h2 {
     margin-bottom: 8rem;
+    text-align: center;
   }
   
   .services h3 {
     margin-bottom: 3rem;
+    text-align: center;
   }
   
   .services-container {
@@ -395,7 +406,7 @@
     text-align: center;
     background: var(--main-color);
     padding: 3rem 2rem 4rem;
-    height: 550px;
+    min-height: 550px;
     border-radius: 20%;
     border: 3px solid transparent;
     cursor: pointer;
@@ -407,7 +418,7 @@
     background-color: white;
     color: black;
     border-radius: 10%;
-    border: 3px gold solid;
+    border: 3px solid gold;
     box-shadow: 0 0 95px rgb(255, 4, 142);
   }
   
@@ -424,72 +435,8 @@
   .services-box p {
     font-size: 1.6rem;
     margin: 1rem 0 3rem;
-  }
-  
-  .services-box .btn {
-    background-color: white;
-  }
-  
-  .services-box .btn:hover {
-    color: var(--main-color);
-  }
-  
-  /* Specific Icon Adjustments */
-  .bx.bx-code-alt {
-    position: relative;
-    top: 10px;
-    width: 50%;
-    margin: 30px;
-  }
-  
-  .bx.bxs-palette {
-    position: relative;
-    top: 20px;
-    width: 50%;
-    margin: 30px;
-  }
-  
-  .bx.bx-rocket {
-    position: relative;
-    bottom: 1px;
-    width: 50%;
-  }
-  
-  .services-box p {
     color: #333;
-    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .rubrik1 h3 {
-    position: relative;
-    bottom: 19px;
-  }
-  
-  .rubrik1 p {
-    position: relative;
-    bottom: 29px;
-  }
-  
-  .rubrik2 p {
-    position: relative;
-    bottom: 19px;
-  }
-  
-  .rubrik3 p {
-    position: relative;
-    bottom: 29px;
-  }
-  
-  .rubrik2 h3 {
-    position: relative;
-    bottom: 1px;
-  }
-  
-  .rubrik3 h3 {
-    position: relative;
-    bottom: 13px;
   }
   
   /* ==========================================================================
@@ -502,22 +449,22 @@
   
   .projects h2 {
     text-align: center;
-    font-size: 40px;
-    margin-bottom: 40px;
+    font-size: 4rem;
+    margin-bottom: 4rem;
   }
   
   .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
   }
   
   .project-card {
     background-color: white;
     color: black;
-    border: 3px rgb(151, 132, 26) solid;
+    border: 3px solid rgb(151, 132, 26);
     box-shadow: 0 0 15px rgb(231, 183, 9);
-    border-radius: 10%;
+    border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
     display: flex;
@@ -526,9 +473,8 @@
   }
   
   .project-card:hover {
-    transform: translateY(-10px) scale(1.1);
-    border-radius: 10%;
-    border: 3px burlywood solid;
+    transform: translateY(-10px) scale(1.02);
+    border: 3px solid burlywood;
     box-shadow: 0 0 15px burlywood;
   }
   
@@ -540,14 +486,12 @@
   .project-card h3 {
     text-align: center;
     padding: 10px;
-    position: relative;
-    right: 9px;
     font-size: 1.5rem;
   }
   
   .project-card p {
     padding: 0 15px 20px;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #555;
   }
   
@@ -567,34 +511,15 @@
     background-color: rgb(221, 181, 36);
   }
   
-  /* Image Background Colors for Projects */
-  #tamarImage {
-    background-color: #009688;
-  }
-  
+  /* Project Image Backgrounds */
+  #tamarImage,
   #shoplistImage {
     background-color: #009688;
   }
   
-  #shop h3 {
-    text-align: center;
-  }
-  
-  #shop {
-    text-align: center;
-    position: relative;
-    bottom: 0px;
-  }
-  
-  #resturange {
-    position: relative;
-    text-align: center;
-    bottom: 20px;
-  }
-  
+  #shop h3,
+  #resturange,
   #education2 {
-    position: relative;
-    top: 20px;
     text-align: center;
   }
   
@@ -602,29 +527,30 @@
      SKILLS SECTION
      ========================================================================== */
   #skills {
-    padding: 50px;
+    padding: 5rem 2rem;
     text-align: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    /* Remove fixed height for responsiveness */
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
   }
   
   #skills h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
   }
   
   .skills-container {
     display: flex;
-    gap: 30px;
-    padding: 50px;
-    width: 90%;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    overflow-x: auto;
     cursor: grab;
   }
   
@@ -632,7 +558,7 @@
     width: 60px;
     height: 60px;
     object-fit: contain;
-    font-size: 60px;
+    font-size: 6rem;
     transition: transform 0.3s ease;
   }
   
@@ -641,9 +567,8 @@
   }
   
   .skill p {
-    margin-top: 40px;
-    margin: 40px;
-    font-size: 18px;
+    margin: 1rem 0;
+    font-size: 1.8rem;
     color: white;
     text-align: center;
   }
@@ -652,140 +577,7 @@
     color: black;
   }
   
-  /* Skill Icon Colors */
-  .skill .fa-html5 {
-    color: #e34f26;
-  }
-  
-  .skill .fa-css3-alt {
-    color: #1572B6;
-  }
-  
-  .skill .fa-js {
-    color: #f7df1e;
-  }
-  
-  .skill .fa-react {
-    color: #61DBFB;
-  }
-  
-  .skill .fa-wordpress {
-    color: #21759B;
-  }
-  
-  .skill .fa-figma {
-    color: #F24E1E;
-  }
-  
-  .skill .fa-git {
-    color: #F05032;
-  }
-  
-  .skill .fa-database {
-    color: #00758F;
-  }
-  
-  .skill .fa-search {
-    color: #ff5722;
-  }
-  
-  .skill .fa-tasks {
-    color: #00bcd4;
-  }
-  
-  .skill .fa-check-circle {
-    color: #4CAF50;
-  }
-  
-  .skill .fa-bug {
-    color: #D32F2F;
-  }
-  
-  .skill .fa-file-alt {
-    color: #607D8B;
-  }
-  
-  .skill .fa-laptop-code {
-    color: #FF9800;
-  }
-  
-  .skill .fa-users {
-    color: #8E44AD;
-  }
-  
-  .skill .fa-paint-brush {
-    color: #3498DB;
-  }
-  
-  .skill .fa-cogs {
-    color: #2C3E50;
-  }
-  
-  .skill .fa-mobile-alt {
-    color: #4CAF50;
-  }
-  
-  .skill .fa-puzzle-piece {
-    color: #E91E63;
-  }
-  
-  .skill .fa-pencil-ruler {
-    color: #9C27B0;
-  }
-  
-  .skill .fa-vial {
-    color: #00BCD4;
-  }
-  
-  .skill .fa-chart-line {
-    color: #009688;
-  }
-  
-  .skill .fa-clipboard-list {
-    color: #795548;
-  }
-  
-  .skill .fa-clipboard-check {
-    color: #FF5722;
-  }
-  
-  .skill .fa-jira {
-    color: #0052CC;
-  }
-  
-  .skill .fa-film {
-    color: #f39c12;
-  }
-  
-  .skill .fa-camera {
-    color: #2ecc71;
-  }
-  
-  .skill .fa-sitemap {
-    color: #16a085;
-  }
-  
-  /* Adobe Icons */
-  .adobe-indesign {
-    color: #FF5C8D;
-  }
-  
-  .adobe-illustrator {
-    color: #FF8C00;
-  }
-  
-  .adobe-photoshop {
-    color: #31A8FF;
-  }
-  
-  .adobe-aftereffects {
-    color: #8E24AA;
-  }
-  
-  .adobe-mediaencoder {
-    color: #B9D1E1;
-  }
-  
+  /* Scrollbar for Skills */
   .skills-container::-webkit-scrollbar {
     height: 8px;
   }
@@ -811,20 +603,20 @@
      TIMELINE / EDUCATION SECTION
      ========================================================================== */
   .timeline-section {
-    min-height: 100vh;
-    padding: 100px 15px;
+    padding: 10rem 2rem;
   }
   
   .timeline-section h2 {
     margin-bottom: 5rem;
+    font-size: 4rem;
+    text-align: center;
   }
   
   .timeline-items {
     max-width: 1000px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0 auto;
     position: relative;
+    padding: 2rem;
   }
   
   .timeline-items::before {
@@ -833,23 +625,13 @@
     width: 5px;
     height: 100%;
     background-color: var(--main-color);
-    left: calc(50% - 1px);
-  }
-  
-  .timeline-section h3 {
-    margin-bottom: 5rem;
-    text-align: start;
-  }
-  
-  .timeline-section p {
-    margin-bottom: 5rem;
-    text-align: start;
+    left: calc(50% - 2.5px);
   }
   
   .timeline-item {
-    margin-bottom: 40px;
-    width: 100%;
+    margin-bottom: 4rem;
     position: relative;
+    width: 100%;
   }
   
   .timeline-item:last-child {
@@ -857,12 +639,13 @@
   }
   
   .timeline-item:nth-child(odd) {
-    padding-right: calc(50% + 30px);
+    padding-right: 50%;
     text-align: right;
   }
   
   .timeline-item:nth-child(even) {
-    padding-left: calc(50% + 30px);
+    padding-left: 50%;
+    text-align: left;
   }
   
   .timeline-dot {
@@ -870,7 +653,7 @@
     width: 21px;
     background-color: var(--main-color);
     position: absolute;
-    left: calc(50% - 8px);
+    left: calc(50% - 10px);
     border-radius: 50%;
     top: 10px;
   }
@@ -878,60 +661,56 @@
   .timeline-date {
     color: white;
     font-weight: 800;
-    font-size: 20px;
-    margin: 6px 0 15px;
+    font-size: 2rem;
+    margin: 0.6rem 0 1.5rem;
   }
   
   .timeline-content {
     background-color: var(--main-color);
-    padding: 30px;
-    border-radius: 10%;
-    cursor: pointer;
+    padding: 3rem;
+    border-radius: 10px;
     transition: 0.3s ease-in-out;
   }
   
   .timeline-content:hover {
-    transform: scale(1.1);
-    border-radius: 15%;
-    border: 3px gold solid;
+    transform: scale(1.05);
+    border: 3px solid gold;
     box-shadow: 0 0 95px rgb(201, 9, 115);
   }
   
   .timeline-content h3 {
-    font-size: 20px;
+    font-size: 2rem;
     color: white;
-    margin: 0 0 10px;
-    text-transform: capitalize;
-    font-weight: 500;
+    margin-bottom: 1rem;
   }
   
   .timeline-content p {
     color: white;
     opacity: 0.8;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
   }
   
   /* ==========================================================================
      CONTACT SECTION
      ========================================================================== */
+  #contact {
+    padding: 10rem 2rem;
+  }
+  
   #contact h2 {
-    padding: 15px;
-    width: 90%;
-    font-size: 56px;
-    position: relative;
-    bottom: 40px;
+    font-size: 4rem;
     text-align: center;
-    left: 30px;
+    margin-bottom: 4rem;
   }
   
   #contact form {
     background-color: burlywood;
-    padding: 40px;
-    position: relative;
-    right: 100px;
+    padding: 4rem;
     border-radius: 42px;
     width: 60%;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease;
   }
   
   #contact form:hover {
@@ -941,12 +720,12 @@
   .inputs-form input,
   .inputs-form textarea {
     width: 100%;
-    box-shadow: 0 0 10px 20px;
-    padding: 14px;
+    padding: 1.4rem;
     background-color: black;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     border-radius: 28px;
-    font-size: 16px;
+    font-size: 1.6rem;
+    color: inherit;
   }
   
   .inputs-form input:focus,
@@ -959,6 +738,7 @@
     background-color: black;
     color: bisque;
     border: 1px solid burlywood;
+    font-size: 1.6rem;
   }
   
   #contact input::placeholder,
@@ -969,9 +749,11 @@
   #contact .btn {
     background-color: burlywood;
     color: black;
-    border: none;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    border-radius: 200px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   #contact .btn:hover {
@@ -982,169 +764,179 @@
      RESPONSIVE MEDIA QUERIES
      ========================================================================== */
   
-  /* For Tablets & Smaller Devices */
+  /* Tablet & Small Devices */
   @media (max-width: 768px) {
     html {
-      font-size: 50%;
+      font-size: 55%;
     }
-  
+    
     .header {
-      padding: 1.5rem 3%;
+      padding: 2rem 4%;
     }
-  
+    
+    /* Show mobile menu icon and adjust navbar */
     #menu-icon {
       display: block;
-      cursor: pointer;
     }
-  
+    
     .navbar {
       flex-direction: column;
-      align-items: center;
       background: var(--header-bg-color);
       position: absolute;
       top: 100%;
-      right: 0;
+      left: 0;
       width: 100%;
       padding: 1rem 0;
       display: none;
     }
-  
+    
     .navbar.active {
       display: flex;
     }
-  
+    
     .navbar a {
       margin: 1rem 0;
       font-size: 1.6rem;
+      margin-left: 0;
     }
-  
+    
+    /* Home Section Adjustments */
     .home {
       flex-direction: column;
       gap: 2rem;
       padding: 2rem 1rem;
     }
-  
+    
     .home-content {
       text-align: center;
       position: relative;
       top: 0;
       left: 0;
     }
-  
+    
     .home-content h1 {
-      font-size: 4rem;
+      font-size: 5rem;
       left: 0;
     }
-  
+    
     .home-content h3 {
-      font-size: 2rem;
+      font-size: 3rem;
       left: 0;
     }
-  
+    
     .home-content p {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       left: 0;
       margin: 1rem;
+      top: 1rem;
     }
-  
-    .services-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
+    
+    /* Services: remove fixed min-height */
+    .services-container .services-box {
+      min-height: auto;
+      padding: 2rem;
     }
-  
+    
+    /* Projects: single column grid */
     .project-container {
       grid-template-columns: 1fr;
       gap: 1rem;
       padding: 0 1rem;
     }
-  
-    .skills-container {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0 1rem;
-    }
-  
+    
+    /* Skills: reduce padding & gap */
     #skills {
-      padding: 2rem;
-      height: auto;
+      padding: 3rem 1rem;
     }
-  
+    
+    .skills-container {
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    /* Timeline: adjust padding and center items */
     .timeline-section {
-      padding: 2rem 1rem;
+      padding: 5rem 1rem;
     }
-  
-    .timeline-items {
-      flex-direction: column;
-      padding: 0;
+    
+    .timeline-items::before {
+      left: 10px;
     }
-  
+    
     .timeline-item {
-      padding: 1rem 0;
-      text-align: center !important;
+      padding: 0;
+      text-align: center;
     }
-  
+    
+    /* Contact: widen form and remove offset */
     #contact form {
       width: 90%;
-      right: 0;
       padding: 2rem;
+      right: 0;
       margin: 0 auto;
     }
-  
+    
     .inputs-form input,
     .inputs-form textarea {
-      padding: 10px;
+      padding: 1rem;
     }
-  
-    button.btn {
-      font-size: 1.5rem;
-      padding: 12px;
+    
+    #contact h2 {
+      font-size: 3.5rem;
     }
   }
   
-  /* For Mobile Devices */
+  /* Mobile Devices */
   @media (max-width: 480px) {
     html {
-      font-size: 45%;
+      font-size: 50%;
     }
-  
+    
     .header {
-      padding: 1rem 2%;
+      padding: 1.5rem 2%;
     }
-  
+    
     .logo {
       font-size: 2.5rem;
     }
-  
+    
     .home-content h1 {
       font-size: 3.5rem;
     }
-  
+    
     .home-content h3 {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
     }
-  
+    
     .home-content p {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       margin: 0.5rem;
     }
-  
+    
     .services h2 {
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
-  
+    
     .project-container {
       gap: 0.5rem;
     }
-  
+    
     #contact h2 {
       font-size: 3rem;
     }
-  
+    
     #contact form {
       width: 95%;
-      right: 0;
+      padding: 1rem;
+    }
+    
+    .inputs-form input,
+    .inputs-form textarea {
+      font-size: 1.4rem;
+    }
+    
+    #contact .btn {
+      font-size: 1.6rem;
       padding: 1rem;
     }
   }
