@@ -684,11 +684,11 @@
       flex-direction: row;
       justify-content: space-around;
       text-align: left;
-      padding-top: 4rem;
+      padding-top: 2rem;
     }
     .home-content {
       max-width: 50%;
-      padding-top: 180px;
+    padding-top: 180px;
     }
     .services-container {
       flex-direction: row;
