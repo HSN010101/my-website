@@ -1,7 +1,6 @@
 /* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
-
    * {
     margin: 0;
     padding: 0;
@@ -9,7 +8,7 @@
   }
   
   html {
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%; /* 1rem ≈ 10px */
     scroll-behavior: smooth;
   }
   
@@ -24,39 +23,32 @@
   /* ==========================================================================
      ROOT VARIABLES & THEME OVERRIDES
      ========================================================================== */
-  
   :root {
-    --bg-color: #000;
-    --text-color: #fff;
+    --bg-color: black;
+    --text-color: white;
     --main-color: burlywood;
-    --header-bg-color: #000;
-    --secondary-bg-color: #000;
+    --header-bg-color: black;
+    --secondary-bg-color: black;
   }
   
   .light-theme {
-    --bg-color: #fff;
+    --bg-color: white;
     --text-color: rgb(98, 62, 14);
     --header-bg-color: rgb(165, 124, 42);
-    --secondary-bg-color: #fff;
+    --secondary-bg-color: white;
   }
   
   /* ==========================================================================
      GLOBAL ELEMENT STYLING & UTILITIES
      ========================================================================== */
-  
   a {
     text-decoration: none;
     color: inherit;
   }
   
-  .hide {
-    display: none;
-  }
-  
   /* ==========================================================================
      HEADER & NAVIGATION
      ========================================================================== */
-  
   .header {
     position: fixed;
     top: 0;
@@ -86,7 +78,6 @@
     gap: 2rem;
   }
   
-  /* Navigation links */
   .navbar a {
     font-size: 1.6rem;
     padding: 0.5rem;
@@ -99,15 +90,14 @@
     border-bottom: 2px solid var(--main-color);
   }
   
-  /* Hamburger Menu (shown on mobile) */
+  /* Hamburger Menu (for mobile) */
   #menu-icon {
     font-size: 3rem;
     color: var(--main-color);
     cursor: pointer;
-    display: none; /* will be shown via media query on mobile */
+    display: none;
   }
   
-  /* "Go Back" button inside Navbar */
   .go-back-btn {
     background: none;
     font-size: 1.6rem;
@@ -126,7 +116,6 @@
   /* ==========================================================================
      THEME TOGGLE SWITCH
      ========================================================================== */
-  
   .switch {
     position: relative;
     display: inline-block;
@@ -187,7 +176,6 @@
   /* ==========================================================================
      BACKGROUND STARS
      ========================================================================== */
-  
   .stars-container {
     position: fixed;
     top: 0;
@@ -207,7 +195,7 @@
   }
   
   .light-theme .star {
-    background-color: #000;
+    background-color: black;
   }
   
   @keyframes twinkle {
@@ -233,7 +221,6 @@
   /* ==========================================================================
      SECTION BASE STYLES
      ========================================================================== */
-  
   section {
     padding: 10rem 5%;
     min-height: 100vh;
@@ -242,14 +229,13 @@
   /* ==========================================================================
      HOME SECTION
      ========================================================================== */
-  
   .home {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 2rem;
-    padding-top: 10rem; /* extra space for fixed header */
+    padding-top: 10rem; /* Extra space for fixed header */
   }
   
   .home-content h1 {
@@ -316,7 +302,6 @@
     }
   }
   
-  /* Social Icons */
   .socials-icons {
     margin-top: 2rem;
     display: flex;
@@ -338,8 +323,8 @@
   }
   
   .socials-icons a:hover {
-    background-color: var(--main-color);
-    color: #000;
+    background-color: goldenrod;
+    color: black;
     transform: scale(1.2) translateY(-5px);
     box-shadow: 0 0 25px var(--main-color);
   }
@@ -347,7 +332,6 @@
   /* ==========================================================================
      SERVICES SECTION
      ========================================================================== */
-  
   .services .heading {
     text-align: center;
     font-size: 3rem;
@@ -361,17 +345,36 @@
   }
   
   .services-box {
-    background: var(--main-color);
-    color: #000;
-    padding: 2rem;
-    border-radius: 1rem;
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: var(--main-color);
+    padding: 3rem 2rem 4rem;
+    height: 550px;
+    border-radius: 20%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease;
   }
   
   .services-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--main-color);
+    transform: scale(1.1);
+    background-color: white;
+    color: black;
+    border-radius: 10%;
+    border: 3px solid gold;
+    box-shadow: 0 0 95px rgb(255, 4, 142);
+  }
+  
+  .light-theme .services-box:hover {
+    background-color: white;
+    border: 3px solid gold;
+    border-radius: 10%;
+    transform: scale(1.1);
+    box-shadow: 0 0 95px rgb(255, 4, 142);
   }
   
   .services-box i {
@@ -392,7 +395,6 @@
   /* ==========================================================================
      PROJECTS SECTION
      ========================================================================== */
-  
   .projects h2 {
     text-align: center;
     font-size: 3rem;
@@ -402,14 +404,14 @@
   .project-container {
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr; /* Mobile default */
+    grid-template-columns: 1fr;
   }
   
   .project-card {
-    background-color: #fff;
-    color: #000;
-    border: 0.3rem solid #977e1a;
-    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    border: 3px solid rgb(151, 132, 26);
+    border-radius: 10%;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -418,8 +420,9 @@
   }
   
   .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px var(--main-color);
+    transform: translateY(-10px) scale(1.1);
+    border: 3px solid burlywood;
+    box-shadow: 0 0 15px burlywood;
   }
   
   .project-card img {
@@ -441,21 +444,20 @@
   .project-card .btn {
     margin: 1rem;
     padding: 1rem;
-    background: var(--main-color);
-    color: #000;
+    background: burlywood;
+    color: black;
     text-align: center;
     border-radius: 0.5rem;
     transition: background 0.3s ease;
   }
   
   .project-card .btn:hover {
-    background: #efdf2b;
+    background: rgb(221, 181, 36);
   }
   
   /* ==========================================================================
      SKILLS SECTION
      ========================================================================== */
-  
   #skills {
     text-align: center;
     padding: 5rem 5%;
@@ -505,7 +507,6 @@
   /* ==========================================================================
      EDUCATION / TIMELINE SECTION
      ========================================================================== */
-  
   .timeline-section {
     padding: 5rem 5%;
   }
@@ -526,11 +527,10 @@
   .timeline-items::before {
     content: "";
     position: absolute;
-    width: 0.5rem;
+    width: 5px;
     height: 100%;
     background: var(--main-color);
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(50% - 1px);
   }
   
   .timeline-item {
@@ -539,49 +539,52 @@
   }
   
   .timeline-dot {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 21px;
+    height: 21px;
     background: var(--main-color);
     border-radius: 50%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
+    left: calc(50% - 8px);
+    top: 10px;
   }
   
   .timeline-date {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: bold;
-    margin: 0.5rem 0;
+    margin: 0.6rem 0 1.5rem;
+    color: white;
   }
   
   .timeline-content {
     background: var(--main-color);
-    color: #000;
-    padding: 1.5rem;
-    border-radius: 1rem;
+    color: black;
+    padding: 3rem;
+    border-radius: 1em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .timeline-content:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px var(--main-color);
+    transform: scale(1.1);
+    border-radius: 15%;
+    border: 3px solid gold;
+    box-shadow: 0 0 95px rgb(201, 9, 115);
   }
   
   .timeline-content h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
+    color: white;
   }
   
   .timeline-content p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.5;
+    color: white;
   }
   
   /* ==========================================================================
      CONTACT SECTION
      ========================================================================== */
-  
   #contact {
     padding: 5rem 5%;
     text-align: center;
@@ -593,7 +596,7 @@
   }
   
   #contact form {
-    background: var(--main-color);
+    background-color: burlywood;
     padding: 2rem;
     border-radius: 1rem;
     max-width: 600px;
@@ -602,7 +605,7 @@
   }
   
   #contact form:hover {
-    box-shadow: 0 0 20px var(--main-color);
+    box-shadow: 0 0 20px burlywood;
   }
   
   .inputs-form {
@@ -617,21 +620,21 @@
     padding: 1rem;
     font-size: 1.4rem;
     border-radius: 0.5rem;
-    border: 0.2rem solid var(--main-color);
-    background: var(--bg-color);
-    color: var(--text-color);
+    border: 1px solid burlywood;
+    background: black;
+    color: bisque;
     transition: background 0.3s ease, color 0.3s ease;
   }
   
   .inputs-form input::placeholder,
   .inputs-form textarea::placeholder {
-    color: var(--main-color);
+    color: burlywood;
   }
   
   button.btn {
     padding: 1rem 2rem;
     font-size: 1.6rem;
-    background: var(--main-color);
+    background: burlywood;
     border: none;
     border-radius: 2rem;
     cursor: pointer;
@@ -639,16 +642,13 @@
   }
   
   button.btn:hover {
-    background: #efdf2b;
+    background: burlywood;
   }
   
   /* ==========================================================================
      MEDIA QUERIES
      ========================================================================== */
-  
   /* MOBILE (max-width: 767px) */
-  /* -------------------------------------------------------------------------- */
-  /* Show hamburger menu & use off‑canvas navigation */
   @media (max-width: 767px) {
     #menu-icon {
       display: block;
@@ -705,7 +705,7 @@
   /* DESKTOPS (min-width: 1024px) */
   @media (min-width: 1024px) {
     html {
-      font-size: 70%; /* Increase base font size for larger screens */
+      font-size: 70%;
     }
     .header {
       padding: 3rem 8%;
@@ -713,7 +713,6 @@
     .navbar a {
       font-size: 1.8rem;
     }
-    /* Show full navigation on desktop */
     #menu-icon {
       display: none;
     }
