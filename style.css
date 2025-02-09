@@ -219,11 +219,11 @@
   }
   
   /* ==========================================================================
-     SECTION BASE STYLES
+     SECTION BASE STYLES (Optimized spacing)
      ========================================================================== */
   section {
-    padding: 10rem 5%;
-    min-height: 100vh;
+    /* Reduced vertical padding and removed forced min-height */
+    padding: 6rem 5%;
   }
   
   /* ==========================================================================
@@ -235,7 +235,7 @@
     align-items: center;
     text-align: center;
     gap: 2rem;
-    padding-top: 10rem; /* Extra space for fixed header */
+    padding-top: 6rem; /* Reduced top padding for fixed header */
   }
   
   .home-content h1 {
@@ -335,7 +335,7 @@
   .services .heading {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced margin */
   }
   
   .services-container {
@@ -398,7 +398,7 @@
   .projects h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced margin */
   }
   
   .project-container {
@@ -460,12 +460,12 @@
      ========================================================================== */
   #skills {
     text-align: center;
-    padding: 5rem 5%;
+    padding: 6rem 5%; /* Slightly adjusted if needed */
   }
   
   #skills h2 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem; /* Reduced margin */
   }
   
   .skills-container {
@@ -508,13 +508,13 @@
      EDUCATION / TIMELINE SECTION
      ========================================================================== */
   .timeline-section {
-    padding: 5rem 5%;
+    padding: 6rem 5%; /* Reduced padding */
   }
   
   .timeline-section .heading {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced margin */
   }
   
   .timeline-items {
@@ -535,7 +535,7 @@
   
   .timeline-item {
     position: relative;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced margin */
   }
   
   .timeline-dot {
@@ -586,13 +586,13 @@
      CONTACT SECTION
      ========================================================================== */
   #contact {
-    padding: 5rem 5%;
+    padding: 6rem 5%; /* Reduced padding */
     text-align: center;
   }
   
   #contact h2 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem; /* Reduced margin */
   }
   
   #contact form {
@@ -685,7 +685,7 @@
       flex-direction: row;
       justify-content: space-around;
       text-align: left;
-      padding-top: 12rem;
+      padding-top: 6rem;
     }
     .home-content {
       max-width: 50%;
@@ -718,6 +718,17 @@
     }
     .project-container {
       grid-template-columns: repeat(3, 1fr);
+    }
+    /* Enhance purple shadows for big screens */
+    .services-box:hover {
+      box-shadow: 0 0 120px rgb(255, 4, 142);
+    }
+    .timeline-content:hover {
+      box-shadow: 0 0 120px rgb(201, 9, 115);
+    }
+    /* Slightly reduce overall section vertical gaps on very large screens */
+    section {
+      padding: 7rem 8%;
     }
   }
   
